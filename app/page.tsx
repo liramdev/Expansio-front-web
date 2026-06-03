@@ -5,7 +5,6 @@ import SolutionSection from "@/components/home/SolutionSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import PricingSection from "@/components/home/PricingSection";
 import AboutPreview from "@/components/home/AboutPreview";
-import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import FAQPreview from "@/components/home/FAQPreview";
 import CTASection from "@/components/ui/CTASection";
 
@@ -29,8 +28,6 @@ export default function HomePage() {
       <PricingSection />
       <div className="section-divider mx-auto max-w-4xl opacity-50" />
       <AboutPreview />
-      <div className="section-divider mx-auto max-w-4xl opacity-50" />
-      <TestimonialsPreview />
       <div className="section-divider mx-auto max-w-4xl opacity-50" />
       <FAQPreview />
       <CTASection

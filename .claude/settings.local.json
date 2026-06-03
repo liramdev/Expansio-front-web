@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(kill %1)",
+      "Bash(cat /tmp/nextdev.log | head -20)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(git push *)",
+      "Bash(gh auth *)",
+      "Bash(GIT_TRACE=1 GIT_CURL_VERBOSE=1 git push origin main)",
+      "Bash(git config *)",
+      "Bash(git rm *)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Remove node_modules and add .gitignore *)",
+      "Bash(git checkout *)",
+      "Bash(git commit -m 'Expansio Digital – full Next.js website *)"
+    ]
+  }
+}

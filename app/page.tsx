@@ -4,7 +4,6 @@ import PainSection from "@/components/home/PainSection";
 import SolutionSection from "@/components/home/SolutionSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import PricingSection from "@/components/home/PricingSection";
-import PortfolioPreview from "@/components/home/PortfolioPreview";
 import AboutPreview from "@/components/home/AboutPreview";
 import TestimonialsPreview from "@/components/home/TestimonialsPreview";
 import FAQPreview from "@/components/home/FAQPreview";
@@ -28,8 +27,6 @@ export default function HomePage() {
       <ServicesPreview />
       <div className="section-divider mx-auto max-w-4xl opacity-50" />
       <PricingSection />
-      <div className="section-divider mx-auto max-w-4xl opacity-50" />
-      <PortfolioPreview />
       <div className="section-divider mx-auto max-w-4xl opacity-50" />
       <AboutPreview />
       <div className="section-divider mx-auto max-w-4xl opacity-50" />

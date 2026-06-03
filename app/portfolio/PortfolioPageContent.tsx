@@ -11,10 +11,11 @@ const filters = ["הכל", "אתרים", "דפי נחיתה", "קמפיינים"
 const projects = [
   {
     category: "אתרים",
-    title: "אתר תדמית לעסק שירות",
-    description: "אתר מקצועי לעסק בתחום השירות. מבנה ברור, עיצוב פרמיום, מותאם מובייל ומוביל לפנייה.",
-    result: "תוצאה תתווסף בקרוב",
-    gradient: "bg-gradient-to-br from-purple/30 via-[#1e1040] to-[#0d0d14]",
+    title: "Edmond Diamond | אתר תדמית יהלומים",
+    description: "אתר תדמית פרמיום לעסק יהלומים — עיצוב יוקרתי, מסר ברור וחוויית משתמש שמשדרת אמינות ומקצועיות.",
+    result: "אתר חי ופעיל",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/20 via-[#0d0d14] to-[#050508]",
+    image: "/web1.png",
     delay: 0,
     filter: "אתרים",
   },

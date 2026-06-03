@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface Props {
   category: string;
@@ -8,10 +9,11 @@ interface Props {
   description: string;
   result: string;
   gradient: string;
+  image?: string;
   delay?: number;
 }
 
-export default function PortfolioCard({ category, title, description, result, gradient, delay = 0 }: Props) {
+export default function PortfolioCard({ category, title, description, result, gradient, image, delay = 0 }: Props) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 40 }}
@@ -21,20 +23,35 @@ export default function PortfolioCard({ category, title, description, result, gr
       whileHover={{ y: -6 }}
       className="group rounded-3xl overflow-hidden glass border border-white/8 hover:border-purple/20 transition-all duration-300"
     >
-      {/* Placeholder image */}
-      <div className={`relative h-52 ${gradient} flex items-center justify-center overflow-hidden`}>
-        <div className="absolute inset-0 bg-black/20" />
-        <div className="relative z-10 text-center">
-          <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mx-auto mb-3 border border-white/20">
-            <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
-          </div>
-          <p className="text-white/40 text-xs">תמונה תתווסף בקרוב</p>
-        </div>
+      {/* Image area */}
+      <div className={`relative h-52 ${!image ? gradient : ""} flex items-center justify-center overflow-hidden`}>
+        {image ? (
+          <>
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent" />
+          </>
+        ) : (
+          <>
+            <div className="absolute inset-0 bg-black/20" />
+            <div className="relative z-10 text-center">
+              <div className="w-16 h-16 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center mx-auto mb-3 border border-white/20">
+                <svg className="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <p className="text-white/40 text-xs">תמונה תתווסף בקרוב</p>
+            </div>
+          </>
+        )}
 
-        <div className="absolute top-4 right-4">
-          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/40 backdrop-blur text-white/80 border border-white/10">
+        <div className="absolute top-4 right-4 z-10">
+          <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/50 backdrop-blur text-white/80 border border-white/10">
             {category}
           </span>
         </div>

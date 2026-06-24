@@ -113,7 +113,7 @@ export default function CoverflowSlider({ projects }: Props) {
     if (prefersReducedMotion || isHovered) return;
     const id = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % n);
-    }, 6000);
+    }, 3000);
     return () => clearInterval(id);
   }, [n, isHovered, prefersReducedMotion, timerKey]);
 

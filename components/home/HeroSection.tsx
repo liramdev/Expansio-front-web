@@ -39,6 +39,14 @@ const PORTFOLIO_PROJECTS: CoverflowProject[] = [
     imageAlt: "דף נחיתה SM Brows",
     href: "https://sm-brows-website.vercel.app/",
   },
+  {
+    id: "shopflexa",
+    name: "Shopflexa | חנות איקומרס",
+    url: "shopflexa.com",
+    imageSrc: "/web4ecom.png",
+    imageAlt: "חנות איקומרס Shopflexa",
+    href: "https://shopflexa.com",
+  },
 ];
 
 const WA_LINK =

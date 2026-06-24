@@ -40,6 +40,17 @@ const projects = [
     delay: 0.15,
     filter: "אתרים",
   },
+  {
+    category: "דפי נחיתה",
+    title: "SM Brows | דף נחיתה",
+    description: "דף נחיתה לסטודיו גבות — עיצוב נשי ומזמין, מסר ברור עם קריאה לפעולה שמובילה להזמנת תור.",
+    result: "דף חי ופעיל",
+    gradient: "bg-gradient-to-br from-pink-500/20 via-[#182845] to-[#182845]",
+    image: "/landpage1.png",
+    href: "https://sm-brows-website.vercel.app/",
+    delay: 0,
+    filter: "דפי נחיתה",
+  },
 ];
 
 // Real campaign result cards with actual screenshots

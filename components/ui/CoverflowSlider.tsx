@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -43,8 +43,7 @@ function usePrefersReducedMotion() {
 function getSlideStyle(
   pos: number,
   isMobile: boolean,
-  prefersReducedMotion: boolean,
-  isActive: boolean
+  prefersReducedMotion: boolean
 ): React.CSSProperties {
   const tx = isMobile ? 160 : 280;
   const transition = prefersReducedMotion ? "none" : "all 0.5s ease";
@@ -102,70 +101,54 @@ export default function CoverflowSlider({ projects }: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  // timerKey increments to force-reset the interval after manual navigation
+  const [timerKey, setTimerKey] = useState(0);
   const dragStartX = useRef(0);
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const isMobile = useIsMobile();
   const prefersReducedMotion = usePrefersReducedMotion();
   const n = projects.length;
 
-  const cardWidth = isMobile ? 240 : 420;
-  const containerHeight = isMobile ? 260 : 380;
-
-  const advance = useCallback(() => {
-    setActiveIndex((prev) => (prev + 1) % n);
-  }, [n]);
-
-  const goBack = useCallback(() => {
-    setActiveIndex((prev) => (prev - 1 + n) % n);
-  }, [n]);
-
-  const startTimer = useCallback(() => {
-    if (intervalRef.current) clearInterval(intervalRef.current);
-    if (!prefersReducedMotion) {
-      intervalRef.current = setInterval(advance, 6000);
-    }
-  }, [advance, prefersReducedMotion]);
-
-  // Auto-advance
+  // Auto-advance: simple setInterval, deps are stable primitives only
   useEffect(() => {
-    if (!isHovered && !prefersReducedMotion) {
-      startTimer();
-    } else if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
-  }, [isHovered, prefersReducedMotion, startTimer]);
+    if (prefersReducedMotion || isHovered) return;
+    const id = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % n);
+    }, 6000);
+    return () => clearInterval(id);
+  }, [n, isHovered, prefersReducedMotion, timerKey]);
 
-  const goTo = useCallback(
-    (index: number) => {
-      setActiveIndex(index);
-      startTimer();
-    },
-    [startTimer]
-  );
+  const resetTimer = () => setTimerKey((k) => k + 1);
+
+  const advance = () => {
+    setActiveIndex((prev) => (prev + 1) % n);
+    resetTimer();
+  };
+  const goBack = () => {
+    setActiveIndex((prev) => (prev - 1 + n) % n);
+    resetTimer();
+  };
+  const goTo = (i: number) => {
+    setActiveIndex(i);
+    resetTimer();
+  };
 
   // Keyboard navigation
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === "ArrowLeft") {
-        advance();
-        startTimer();
-      } else if (e.key === "ArrowRight") {
-        goBack();
-        startTimer();
-      }
+      if (e.key === "ArrowLeft") advance();
+      else if (e.key === "ArrowRight") goBack();
     };
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
-  }, [advance, goBack, startTimer]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [n]);
 
   // Normalize position to -2..2
   const getPos = (i: number) => {
     let diff = i - activeIndex;
-    if (diff > Math.floor(n / 2)) diff -= n;
-    if (diff < -Math.floor(n / 2)) diff += n;
+    const half = Math.floor(n / 2);
+    if (diff > half) diff -= n;
+    if (diff < -half) diff += n;
     return diff;
   };
 
@@ -180,12 +163,7 @@ export default function CoverflowSlider({ projects }: Props) {
     const delta = dragStartX.current - e.clientX;
     if (Math.abs(delta) > 50) {
       delta > 0 ? advance() : goBack();
-      startTimer();
     }
-  };
-  const onMouseLeaveContainer = () => {
-    setIsHovered(false);
-    setIsDragging(false);
   };
 
   // Touch
@@ -196,9 +174,11 @@ export default function CoverflowSlider({ projects }: Props) {
     const delta = dragStartX.current - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 50) {
       delta > 0 ? advance() : goBack();
-      startTimer();
     }
   };
+
+  const cardWidth = isMobile ? 240 : 420;
+  const containerHeight = isMobile ? 260 : 380;
 
   return (
     <div
@@ -216,7 +196,7 @@ export default function CoverflowSlider({ projects }: Props) {
           cursor: isDragging ? "grabbing" : "grab",
         }}
         onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={onMouseLeaveContainer}
+        onMouseLeave={() => { setIsHovered(false); setIsDragging(false); }}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         onTouchStart={onTouchStart}
@@ -225,7 +205,7 @@ export default function CoverflowSlider({ projects }: Props) {
         {projects.map((project, i) => {
           const pos = getPos(i);
           const isActive = pos === 0;
-          const slideStyle = getSlideStyle(pos, isMobile, prefersReducedMotion, isActive);
+          const slideStyle = getSlideStyle(pos, isMobile, prefersReducedMotion);
 
           return (
             <div key={project.id} style={{ ...slideStyle, width: cardWidth }} aria-hidden={!isActive}>
@@ -253,13 +233,11 @@ export default function CoverflowSlider({ projects }: Props) {
                     gap: 10,
                   }}
                 >
-                  {/* Traffic lights */}
                   <div style={{ display: "flex", gap: 6, flexShrink: 0 }}>
                     <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FF5F57" }} />
                     <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#FFBD2E" }} />
                     <div style={{ width: 10, height: 10, borderRadius: "50%", background: "#28C840" }} />
                   </div>
-                  {/* URL bar */}
                   <div
                     style={{
                       flex: 1,
@@ -286,7 +264,7 @@ export default function CoverflowSlider({ projects }: Props) {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      tabIndex={isActive ? 0 : -1}
+                      tabIndex={0}
                       style={{ display: "block", width: "100%", height: "100%" }}
                     >
                       <Image

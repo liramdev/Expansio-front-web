@@ -29,6 +29,16 @@ const projects = [
     delay: 0.05,
     filter: "אתרים",
   },
+  {
+    category: "אתרים",
+    title: "Gold Master Remodeling | אתר תדמית",
+    description: "אתר תדמית לחברת שיפוצים בדאלאס — עיצוב מקצועי, מותאם מובייל ומוכוון להבאת לידים בשוק האמריקאי.",
+    result: "אתר חי ופעיל",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/15 via-[#0d0d14] to-[#050508]",
+    image: "/web3.png",
+    delay: 0.1,
+    filter: "אתרים",
+  },
 ];
 
 // Real campaign result cards with actual screenshots

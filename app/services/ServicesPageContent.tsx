@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import SectionHeading from "@/components/ui/SectionHeading";
 import CTASection from "@/components/ui/CTASection";
+import HowItWorksTimeline from "@/components/ui/HowItWorksTimeline";
 
 const services = [
   {
@@ -201,6 +202,8 @@ export default function ServicesPageContent() {
           </div>
         </div>
       </section>
+
+      <HowItWorksTimeline />
 
       <CTASection
         title="רוצים להתחיל?"

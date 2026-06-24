@@ -21,16 +21,6 @@ const projects = [
   },
   {
     category: "אתרים",
-    title: "חרת שיפוצים דאלאס | אתר תדמית",
-    description: "אתר תדמית לחברת שיפוצים בדאלאס, טקסס — עיצוב מקצועי בשוק האמריקאי, מותאם מובייל ומוכוון לידים.",
-    result: "אתר חי ופעיל",
-    gradient: "bg-gradient-to-br from-purple/20 via-[#0d0d14] to-[#050508]",
-    image: "/web2.png",
-    delay: 0.05,
-    filter: "אתרים",
-  },
-  {
-    category: "אתרים",
     title: "Gold Master Remodeling | אתר תדמית",
     description: "אתר תדמית לחברת שיפוצים בדאלאס — עיצוב מקצועי, מותאם מובייל ומוכוון להבאת לידים בשוק האמריקאי.",
     result: "אתר חי ופעיל",

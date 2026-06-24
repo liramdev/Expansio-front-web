@@ -29,6 +29,17 @@ const projects = [
     delay: 0.1,
     filter: "אתרים",
   },
+  {
+    category: "אתרים",
+    title: "Maisha Group | אתר תדמית",
+    description: "אתר תדמית מקצועי — עיצוב נקי, מסר ברור וחוויית משתמש שמשדרת אמינות ומוביל לפנייה.",
+    result: "אתר חי ופעיל",
+    gradient: "bg-gradient-to-br from-purple/20 via-[#0d0d14] to-[#050508]",
+    image: "/web4.png",
+    href: "https://www.maisha-group.com/",
+    delay: 0.15,
+    filter: "אתרים",
+  },
 ];
 
 // Real campaign result cards with actual screenshots

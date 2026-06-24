@@ -3,6 +3,43 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import CoverflowSlider from "@/components/ui/CoverflowSlider";
+import type { CoverflowProject } from "@/components/ui/CoverflowSlider";
+
+const PORTFOLIO_PROJECTS: CoverflowProject[] = [
+  {
+    id: "edmond",
+    name: "Edmond Diamond | אתר תדמית",
+    url: "private.edmonddiamond.com",
+    imageSrc: "/web1.png",
+    imageAlt: "אתר Edmond Diamond",
+    href: "https://private.edmonddiamond.com",
+  },
+  {
+    id: "goldmaster",
+    name: "Gold Master Remodeling | אתר תדמית",
+    url: "dallas.goldmasterremodeling.com",
+    imageSrc: "/web3.png",
+    imageAlt: "אתר Gold Master Remodeling",
+    href: "https://dallas.goldmasterremodeling.com",
+  },
+  {
+    id: "maisha",
+    name: "Maisha Group | אתר תדמית",
+    url: "maisha-group.com",
+    imageSrc: "/web4.png",
+    imageAlt: "אתר Maisha Group",
+    href: "https://www.maisha-group.com/",
+  },
+  {
+    id: "smbrows",
+    name: "SM Brows | דף נחיתה",
+    url: "sm-brows-website.vercel.app",
+    imageSrc: "/landpage1.png",
+    imageAlt: "דף נחיתה SM Brows",
+    href: "https://sm-brows-website.vercel.app/",
+  },
+];
 
 const WA_LINK =
   "https://api.whatsapp.com/send/?phone=972549569088&text&type=phone_number&app_absent=0&wame_ctl=1";
@@ -307,6 +344,9 @@ export default function HeroSection() {
                 <FloatingSymbol key={i} {...s} />
               ))}
             </div>
+
+            {/* Coverflow portfolio slider */}
+            <CoverflowSlider projects={PORTFOLIO_PROJECTS} />
           </div>
 
           {/* Left Speaker */}

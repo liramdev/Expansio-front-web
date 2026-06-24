@@ -12,9 +12,11 @@ interface Props {
   image?: string;
   href?: string;
   delay?: number;
+  typeLabel?: string;
+  typeVariant?: "default" | "ecom";
 }
 
-export default function PortfolioCard({ category, title, description, result, gradient, image, href, delay = 0 }: Props) {
+export default function PortfolioCard({ category, title, description, result, gradient, image, href, delay = 0, typeLabel, typeVariant = "default" }: Props) {
   const Wrapper = href ? "a" : "div";
   const wrapperProps = href
     ? { href, target: "_blank", rel: "noopener noreferrer" }
@@ -59,10 +61,21 @@ export default function PortfolioCard({ category, title, description, result, gr
             </>
           )}
 
-          <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
+          <div className="absolute top-4 right-4 z-10 flex items-center gap-2 flex-wrap">
             <span className="px-3 py-1 rounded-full text-xs font-semibold bg-black/50 backdrop-blur text-white/80 border border-white/10">
               {category}
             </span>
+            {typeLabel && (
+              <span
+                className={`px-2.5 py-1 rounded-full text-xs font-bold backdrop-blur border ${
+                  typeVariant === "ecom"
+                    ? "bg-emerald-500/20 text-emerald-300 border-emerald-400/30"
+                    : "bg-[#c9a84c]/15 text-[#e2c97e] border-[#c9a84c]/25"
+                }`}
+              >
+                {typeLabel}
+              </span>
+            )}
             {href && (
               <span className="px-2 py-1 rounded-full text-xs bg-purple/60 backdrop-blur text-white border border-purple/30">
                 ↗ צפה באתר

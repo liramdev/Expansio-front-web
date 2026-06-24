@@ -6,7 +6,7 @@ import Image from "next/image";
 import PortfolioCard from "@/components/ui/PortfolioCard";
 import CTASection from "@/components/ui/CTASection";
 
-const filters = ["הכל", "אתרים", "דפי נחיתה", "קמפיינים", "קריאייטיבים"];
+const filters = ["אתרים", "דפי נחיתה", "קמפיינים"];
 
 const projects = [
   {
@@ -155,10 +155,10 @@ function CampaignResultCard({ card, delay = 0 }: { card: typeof campaignResults[
 }
 
 export default function PortfolioPageContent() {
-  const [active, setActive] = useState("הכל");
+  const [active, setActive] = useState("אתרים");
 
-  const filtered = active === "הכל" ? projects : projects.filter((p) => p.filter === active);
-  const showCampaigns = active === "הכל" || active === "קמפיינים";
+  const filtered = projects.filter((p) => p.filter === active);
+  const showCampaigns = active === "קמפיינים";
 
   return (
     <>
@@ -287,15 +287,6 @@ export default function PortfolioPageContent() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {active !== "קמפיינים" && (
             <>
-              {active === "הכל" && (
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="h-px flex-1 bg-white/5" />
-                  <span className="text-xs font-semibold tracking-[0.15em] uppercase text-white/30">
-                    עבודות נוספות
-                  </span>
-                  <div className="h-px flex-1 bg-white/5" />
-                </div>
-              )}
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}

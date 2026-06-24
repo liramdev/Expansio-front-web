@@ -6,9 +6,9 @@
 
 :root {
   --font-heebo: 'Heebo', sans-serif;
-  --bg-primary: #050508;
-  --bg-soft: #0d0d14;
-  --bg-card: #10101a;
+  --bg-primary: #182845;
+  --bg-soft: #182845;
+  --bg-card: #182845;
   --purple: #7c3aed;
   --purple-light: #a78bfa;
   --gold: #c9a84c;
@@ -46,7 +46,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0d14;
+  background: #182845;
 }
 
 ::-webkit-scrollbar-thumb {

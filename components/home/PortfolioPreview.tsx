@@ -19,7 +19,7 @@ const projects = [
     title: "דף נחיתה לקמפיין לידים",
     description: "דף נחיתה ממוקד עם הצעה ברורה, טופס לידים וקופי שמוביל לפנייה מיידית.",
     result: "צילום קמפיין יעלה בהמשך",
-    gradient: "bg-gradient-to-br from-[#c9a84c]/20 via-[#0d0d14] to-black",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/20 via-[#182845] to-black",
     delay: 0.1,
   },
   {
@@ -27,7 +27,7 @@ const projects = [
     title: "קמפיין Meta Ads",
     description: "ניהול קמפיין ממוקד בפייסבוק ואינסטגרם עם אסטרטגיה, קהל והצעה מוכחת.",
     result: "תוצאה תתווסף בקרוב",
-    gradient: "bg-gradient-to-br from-purple/20 via-[#0d0d14] to-black",
+    gradient: "bg-gradient-to-br from-purple/20 via-[#182845] to-black",
     delay: 0.2,
   },
   {
@@ -35,7 +35,7 @@ const projects = [
     title: "קריאייטיב למודעה",
     description: "עיצוב מודעות, באנרים ווידאו שעוצרים את הגלגול ומובילים לפעולה.",
     result: "עבודות יעלו בהמשך",
-    gradient: "bg-gradient-to-br from-[#c9a84c]/15 via-[#0d0d14] to-black",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/15 via-[#182845] to-black",
     delay: 0.3,
   },
 ];

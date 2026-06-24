@@ -43,7 +43,7 @@ export default function PortfolioCard({ category, title, description, result, gr
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 sizes="(max-width: 768px) 100vw, 33vw"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#182845] via-transparent to-transparent" />
             </>
           ) : (
             <>

@@ -28,7 +28,7 @@ export default function MobileMenu({ isOpen, onClose, navItems, waLink, pathname
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-[#0d0d14] border-l border-white/5 flex flex-col"
+            className="fixed top-0 right-0 bottom-0 z-50 w-80 bg-[#182845] border-l border-white/5 flex flex-col"
           >
             <div className="flex items-center justify-between p-6 border-b border-white/5">
               <div>

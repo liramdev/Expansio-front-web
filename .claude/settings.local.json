@@ -16,7 +16,21 @@
       "Bash(git add *)",
       "Bash(git commit -m 'Remove node_modules and add .gitignore *)",
       "Bash(git checkout *)",
-      "Bash(git commit -m 'Expansio Digital – full Next.js website *)"
+      "Bash(git commit -m 'Expansio Digital – full Next.js website *)",
+      "Bash(gh pr create --base main --head clean-main --title 'Expansio Digital – Full Next.js Website' --body ' *)",
+      "Bash(gh repo *)",
+      "Bash(gh run *)",
+      "Bash(git commit -m 'Remove PortfolioPreview from homepage *)",
+      "Bash(git commit -m 'Remove TestimonialsPreview from homepage *)",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "Bash(git commit -m 'Add Edmond Diamond website to portfolio *)",
+      "Bash(git commit -m 'Add Harat Renovations Dallas website to portfolio *)",
+      "Bash(git commit -m 'Hide all placeholder portfolio cards *)",
+      "Bash(git commit -m 'Add Gold Master Remodeling Dallas to portfolio *)",
+      "Bash(git commit -m 'Remove duplicate Dallas card and fix typo חרת→חברת *)",
+      "Bash(git commit -m 'Add Maisha Group card with clickable link, support href in PortfolioCard *)",
+      "Bash(git commit -m 'Remove '\\\\''הכל'\\\\'' tab and קריאייטיבים from portfolio filters *)",
+      "Bash(git commit -m 'Change theme background from black to #182845 \\(navy blue\\) *)"
     ]
   }
 }

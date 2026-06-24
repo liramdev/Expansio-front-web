@@ -14,7 +14,7 @@ const projects = [
     title: "Edmond Diamond | אתר תדמית יהלומים",
     description: "אתר תדמית פרמיום לעסק יהלומים — עיצוב יוקרתי, מסר ברור וחוויית משתמש שמשדרת אמינות ומקצועיות.",
     result: "אתר חי ופעיל",
-    gradient: "bg-gradient-to-br from-[#c9a84c]/20 via-[#0d0d14] to-[#050508]",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/20 via-[#182845] to-[#182845]",
     image: "/web1.png",
     delay: 0,
     filter: "אתרים",
@@ -24,7 +24,7 @@ const projects = [
     title: "Gold Master Remodeling | אתר תדמית",
     description: "אתר תדמית לחברת שיפוצים בדאלאס — עיצוב מקצועי, מותאם מובייל ומוכוון להבאת לידים בשוק האמריקאי.",
     result: "אתר חי ופעיל",
-    gradient: "bg-gradient-to-br from-[#c9a84c]/15 via-[#0d0d14] to-[#050508]",
+    gradient: "bg-gradient-to-br from-[#c9a84c]/15 via-[#182845] to-[#182845]",
     image: "/web3.png",
     delay: 0.1,
     filter: "אתרים",
@@ -34,7 +34,7 @@ const projects = [
     title: "Maisha Group | אתר תדמית",
     description: "אתר תדמית מקצועי — עיצוב נקי, מסר ברור וחוויית משתמש שמשדרת אמינות ומוביל לפנייה.",
     result: "אתר חי ופעיל",
-    gradient: "bg-gradient-to-br from-purple/20 via-[#0d0d14] to-[#050508]",
+    gradient: "bg-gradient-to-br from-purple/20 via-[#182845] to-[#182845]",
     image: "/web4.png",
     href: "https://www.maisha-group.com/",
     delay: 0.15,
@@ -90,7 +90,7 @@ function CampaignResultCard({ card, delay = 0 }: { card: typeof campaignResults[
       className="rounded-3xl overflow-hidden glass border border-white/8 hover:border-purple/20 transition-all duration-300 group"
     >
       {/* Screenshot image */}
-      <div className="relative w-full h-64 overflow-hidden bg-[#0d0d14]">
+      <div className="relative w-full h-64 overflow-hidden bg-[#182845]">
         <Image
           src={card.image}
           alt={card.alt}
@@ -99,7 +99,7 @@ function CampaignResultCard({ card, delay = 0 }: { card: typeof campaignResults[
           sizes="(max-width: 768px) 100vw, 50vw"
         />
         {/* Gradient overlay bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d14] via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#182845] via-transparent to-transparent" />
 
         {/* Badge */}
         <div className="absolute top-4 right-4">

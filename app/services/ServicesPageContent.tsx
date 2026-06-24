@@ -154,7 +154,7 @@ export default function ServicesPageContent() {
                 <div className={`rounded-3xl p-10 h-64 flex items-center justify-center border ${
                   s.color === "purple"
                     ? "bg-gradient-to-br from-purple/15 to-purple-faint border-purple/20"
-                    : "bg-gradient-to-br from-[#c9a84c]/10 to-[#0d0d14] border-[#c9a84c]/15"
+                    : "bg-gradient-to-br from-[#c9a84c]/10 to-[#182845] border-[#c9a84c]/15"
                 }`}>
                   <div className="text-center">
                     <div className="text-6xl font-black text-gradient-purple mb-2">{s.num}</div>

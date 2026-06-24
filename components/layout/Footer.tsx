@@ -15,7 +15,7 @@ const WA_LINK =
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#050508] border-t border-white/5">
+    <footer className="relative bg-[#182845] border-t border-white/5">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c]/30 to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

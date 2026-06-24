@@ -10,10 +10,10 @@ const config: Config = {
     extend: {
       colors: {
         black: {
-          DEFAULT: "#050508",
-          soft: "#0d0d14",
-          card: "#10101a",
-          border: "#1a1a2e",
+          DEFAULT: "#182845",
+          soft: "#182845",
+          card: "#182845",
+          border: "#182845",
         },
         purple: {
           DEFAULT: "#7c3aed",
